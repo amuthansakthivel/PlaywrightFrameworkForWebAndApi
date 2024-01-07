@@ -6,7 +6,7 @@ It has examples of how to use Playwright to automate web and API tests. It also 
 
 * **_My strong recommendation is to avoid Page Object Model or use only the pages to store the locators._**
 
-E2E UI tests needs to be minimalist and simple. If you are writing very few E2E UI test, you may not have the need to use Page Object Model. You can simply generate the test using `npx playwright codegen`, improvise the locators by adding new attributes, using user-friendly locators.
+E2E UI tests needs to be minimalist and simple. If you are writing very few E2E UI test, you may not have the need to use Page Object Model. You can simply generate the test using `npx playwright codegen`, improvise the locators by adding new attributes and also by using user-friendly locators.
 
 
 **Libraries used:**
