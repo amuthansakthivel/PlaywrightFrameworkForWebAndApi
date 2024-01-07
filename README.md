@@ -25,5 +25,6 @@ E2E UI tests needs to be minimalist and simple. If you are writing very few E2E 
 - `npm run prettier:fix` - Fix code formatting
 - `npm run lint:check` - Check code linting
 - `npm run lint:fix` - Fix code linting
+- `npm run test:ui:staging` - Run all UI tests in staging environment //It won't work as the URL is invalid. Just for demo purpose.
 
 
