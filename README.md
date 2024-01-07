@@ -10,7 +10,7 @@ E2E UI tests needs to be minimalist and simple. If you are writing very few E2E 
 
 
 **Libraries used:**
-- [Playwright](https://playwright.dev/) - Browser Automation
+- [Playwright](https://playwright.dev/) - Browser and API Automation
 - [Typescript](https://www.typescriptlang.org/) - Programming Language
 - [Dotenv](https://www.npmjs.com/package/dotenv) - Environment Variables
 - [ESLint](https://eslint.org/) - Linting
