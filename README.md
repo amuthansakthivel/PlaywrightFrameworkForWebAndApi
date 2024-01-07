@@ -18,6 +18,7 @@ E2E UI tests needs to be minimalist and simple. If you are writing very few E2E 
 
 **Commands:**
 
+- `npm install` - Install dependencies
 - `npm run test` - Run all tests
 - `npm run test:ui` - Run all UI tests
 - `npm run test:api` - Run all API tests
