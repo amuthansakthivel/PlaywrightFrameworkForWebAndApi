@@ -2,32 +2,29 @@ import { Page } from "@playwright/test";
 import { ProductDetails } from "../../types";
 
 export class TopMenuComponent {
-    private page: Page;
+  private readonly hamburgerMenu = this.page.getByLabel("Open Menu");
+  private readonly menu = (menuName: string) => this.page.getByRole("link", { name: menuName });
+  private readonly subMenu = (subMenuName: string) =>
+    this.page.locator("#hmenu-content").getByRole("link", { name: subMenuName }).last();
 
-    constructor(page: Page) {
-        this.page = page;
-    }
+  constructor(private readonly page: Page) {}
 
-    async clickOnHamburgerMenu() {
-        await this.page.getByLabel('Open Menu').click()
-    }
+  async clickOnHamburgerMenu() {
+    await this.hamburgerMenu.click();
+  }
 
-    async selectProduct(productDetails: ProductDetails) {
-        await this.selectMenuItem(productDetails.menu);
-        await this.selectSubMenuItems(productDetails.subMenu);
-    }
+  async selectProduct(productDetails: ProductDetails) {
+    await this.selectMenuItem(productDetails.menu);
+    await this.selectSubMenuItems(productDetails.subMenu);
+  }
 
-    private async selectMenuItem(menuName: string) {
-        await this.page.waitForTimeout(2000);
-        await this.page.getByRole('link', {name: menuName}).click();
-    }
+  private async selectMenuItem(menuName: string) {
+    await this.page.waitForTimeout(2000);
+    await this.menu(menuName).click();
+  }
 
-    private async selectSubMenuItems(subMenuName: string) {
-        await this.page.waitForTimeout(2000);
-        await this.page
-            .locator("#hmenu-content")
-            .getByRole('link', {name: subMenuName})
-            .last()
-            .click();
-    }
+  private async selectSubMenuItems(subMenuName: string) {
+    await this.page.waitForTimeout(2000);
+    await this.subMenu(subMenuName).click();
+  }
 }

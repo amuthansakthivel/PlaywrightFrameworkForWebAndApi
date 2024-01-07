@@ -3,19 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
     "@types/node": "^20.10.6",
-    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8.56.0",
-    "eslint-config-standard-with-typescript": "^43.0.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.1",
-    "eslint-plugin-promise": "^6.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^0.21.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "prettier": "3.1.1",
     "typescript": "^5.3.3"
   }
 }

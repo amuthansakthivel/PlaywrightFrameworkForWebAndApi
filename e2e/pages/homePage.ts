@@ -1,33 +1,30 @@
 import { Page } from "@playwright/test";
 import { AddToCartPage } from "./addToCartPage";
 import { TopMenuComponent } from "./components";
-import {Brands, Product} from "../types";
+import { Brands, Product } from "../types";
 
 export class HomePage {
-    private readonly page: Page;
-    private readonly topMenuComponent: TopMenuComponent;
+  private readonly topMenuComponent: TopMenuComponent;
+  private readonly filterByBrandName = (brandName: Brands) => this.page.getByRole("link", { name: brandName });
+  private readonly clickOnProduct = (productName: Product) => this.page.getByRole("link", { name: productName });
 
-    constructor(page: Page) {
-        this.page = page;
-        this.topMenuComponent = new TopMenuComponent(page);
-    }
+  constructor(private readonly page: Page) {
+    this.topMenuComponent = new TopMenuComponent(page);
+  }
 
-    getTopMenuComponent() {
-        return this.topMenuComponent;
-    }
+  getTopMenuComponent() {
+    return this.topMenuComponent;
+  }
 
-    async filterByBrand(brandName: Brands) {
-        await this.page
-            .getByRole('link', {name: brandName})
-            .click();
-    }
+  async filterByBrand(brandName: Brands) {
+    await this.filterByBrandName(brandName).last().click();
+  }
 
-    async selectProduct(productName: Product) {
-        const [page1] = await Promise.all([
-            this.page.waitForEvent('popup'),
-            this.page.getByRole('link', {name: productName}).first().click()
-        ]);
-        return new AddToCartPage(page1);
-    }
+  async selectProduct(productName: Product) {
+    const [page1] = await Promise.all([
+      this.page.waitForEvent("popup"),
+      this.clickOnProduct(productName).first().click(),
+    ]);
+    return new AddToCartPage(page1);
+  }
 }
-
