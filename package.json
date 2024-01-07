@@ -7,7 +7,9 @@
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "lint": "npx eslint .",
-    "lint:fix": "npx eslint . --fix"
+    "lint:fix": "npx eslint . --fix",
+    "test:ui": "npx playwright test ./e2e/tests/ui",
+    "test:api": "npx playwright test ./e2e/tests/api"
   },
   "keywords": [],
   "author": "",
